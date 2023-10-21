@@ -1,4 +1,4 @@
-module github.com/bep/gallerydeluxe_starter
+module github.com/michael1017/cs551-assign4
 
 go 1.19
 

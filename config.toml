@@ -16,7 +16,7 @@ disableKinds = ["section", "taxonomy", "term"]
 
         # Enable Exif data in the gallery.
         # See https://gohugo.io/content-management/image-processing/#exif-data for how to filter tags.
-        enable_exif = true
+        enable_exif = false
 
         # Optional watermark file for the large images.
         [params.gallerydeluxe.watermark]
@@ -38,13 +38,13 @@ disableKinds = ["section", "taxonomy", "term"]
         maxAge = "4320h"                   # 6 months.
 
 [imaging]
-    resampleFilter = "CatmullRom"
-    quality        = 71
-    anchor         = "smart"
-    [imaging.exif]
-        disableDate    = false
-        disableLatLong = true
-        includeFields  = 'Artist|LensModel|FNumber|ExposureTime'
+#    resampleFilter = "CatmullRom"
+#    quality        = 71
+#    anchor         = "smart"
+#    [imaging.exif]
+#        disableDate    = false
+#        disableLatLong = true
+#        includeFields  = 'Artist|LensModel|FNumber|ExposureTime'
 
 [server]
     [[server.headers]]
@@ -67,3 +67,13 @@ disableKinds = ["section", "taxonomy", "term"]
         target = "static"
     [[module.imports]]
         path = "github.com/bep/gallerydeluxe"
+
+[deployment]
+  [[deployment.targets]]
+    name = "aws-s3"
+    URL = "s3://huan2086-s3-bucket-website?region=us-east-1"
+    cloudFrontDistributionID = "E2LKVV51VNNQAR"
+
+  [[deployment.targets]]
+    name = "tokyo"
+    URL = "s3://huan2086-s3-bucket-tokyo-website?region=ap-northeast-1"
